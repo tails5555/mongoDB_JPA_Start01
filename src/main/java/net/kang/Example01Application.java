@@ -1,10 +1,7 @@
 package net.kang;
 
-import java.util.List;
-
 import javax.sql.DataSource;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,9 +12,6 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-
-import net.kang.domain.Music;
-import net.kang.repository.MusicRepository;
 
 @EnableAutoConfiguration(exclude = {JpaRepositoriesAutoConfiguration.class})
 @EnableMongoRepositories(basePackages = "net.kang.repository")
@@ -40,18 +34,4 @@ public class Example01Application {
 	public DataSource contractDataSource() {
 		return DataSourceBuilder.create().build();
 	}
-
-	@Bean
-    CommandLineRunner init(MusicRepository musicRepository) {
-
-        return args -> {
-
-            List<Music> musicList=musicRepository.findAll();
-            for(Music m : musicList) {
-            	System.out.println(m);
-            }
-
-        };
-
-    }
 }

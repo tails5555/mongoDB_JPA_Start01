@@ -3,6 +3,7 @@ package net.kang.config;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
@@ -10,6 +11,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
 
+@Configuration
 public class MongoConfig extends AbstractMongoConfiguration{
 
     @Value("${spring.data.mongodb.host}")
@@ -26,7 +28,6 @@ public class MongoConfig extends AbstractMongoConfiguration{
 
     @Value("${spring.data.mongodb.password}")
     private String password;
-
 
 	@Override
 	protected String getDatabaseName() {
