@@ -26,8 +26,9 @@ public class AlbumController {
 		return albumService.findAll();
 	}
 	@RequestMapping("findOne/{id}")
-	public Optional<Album> findOne(@PathVariable("id") String id) {
-		return albumService.findOne(id);
+	public Album findOne(@PathVariable("id") String id) {
+		Optional<Album> result=albumService.findOne(id);
+		return result.orElse(new Album());
 	}
 	@RequestMapping("findByReleaseDateAfter/{releaseDate}")
 	public List<Album> findBySinger(@PathVariable("releaseDate") @DateTimeFormat(pattern = "yyyyMMdd") Date releaseDate){

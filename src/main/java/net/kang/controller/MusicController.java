@@ -24,8 +24,9 @@ public class MusicController {
 		return musicService.findAll();
 	}
 	@RequestMapping("findOne/{id}")
-	public Optional<Music> findOne(@PathVariable("id") String id) {
-		return musicService.findById(id);
+	public Music findOne(@PathVariable("id") String id) {
+		Optional<Music> result=musicService.findById(id);
+		return result.orElse(new Music());
 	}
 	@RequestMapping("findBySinger/{singer}")
 	public List<Music> findBySinger(@PathVariable("singer") String singer){
