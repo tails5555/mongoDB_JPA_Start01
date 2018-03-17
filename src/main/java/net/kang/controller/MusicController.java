@@ -4,16 +4,18 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.kang.domain.Music;
 import net.kang.service.MusicService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("music")
 public class MusicController {
 	@Autowired MusicService musicService;
@@ -21,16 +23,16 @@ public class MusicController {
 	public List<Music> findAll(){
 		return musicService.findAll();
 	}
-	@RequestMapping("findOne")
-	public Optional<Music> findOne(@RequestParam("id") String id) {
+	@RequestMapping("findOne/{id}")
+	public Optional<Music> findOne(@PathVariable("id") String id) {
 		return musicService.findById(id);
 	}
-	@RequestMapping("findBySinger")
-	public List<Music> findBySinger(@RequestParam("singer") String singer){
+	@RequestMapping("findBySinger/{singer}")
+	public List<Music> findBySinger(@PathVariable("singer") String singer){
 		return musicService.findBySinger(singer);
 	}
-	@RequestMapping("findByYearBetween")
-	public List<Music> findByYearBetween(@RequestParam("before") int before, @RequestParam("after") int after){
+	@RequestMapping("findByYearBetween/{before}/{after}")
+	public List<Music> findByYearBetween(@PathVariable("before") int before, @PathVariable("after") int after){
 		return musicService.findByYearBetween(before, after);
 	}
 	@RequestMapping(value="insert", method=RequestMethod.POST)
@@ -41,8 +43,8 @@ public class MusicController {
 	public void update(@RequestBody Music music) {
 		musicService.update(music);
 	}
-	@RequestMapping(value="delete", method=RequestMethod.DELETE)
-	public void delete(@RequestParam("id") String id) {
+	@RequestMapping(value="delete/{id}", method=RequestMethod.DELETE)
+	public void delete(@PathVariable("id") String id) {
 		musicService.delete(id);
 	}
 }
