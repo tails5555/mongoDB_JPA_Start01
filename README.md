@@ -11,7 +11,7 @@ MongoDB JPA 연동 연습 Act.01[Spring Boot + MongoDB RESTful API]
  
 스터디 자료는 향시에 수정이 될 수 있으니 이 점 참고하시길 바라겠습니다.
 
-[스터디 자료 참고하기](https://github.com/tails5555/mongoDB_JPA_Start01/blob/master/src/doc/MongoDB%2BSpringJPA_01_REST_API.pdf)
+[스터디 자료 참고하기](https://github.com/tails5555/mongoDB_JPA_Start02/blob/master/src/doc/MongoDB%2BSpringJPA_02_JUnit_And_Mockito.pdf)
 
 ## Maven pom.xml
 `pom.xml` 를 기반으로 Maven Dependency를 구성하여 Update Maven은 필수입니다
@@ -47,7 +47,7 @@ MongoDB JPA 연동 연습 Act.01[Spring Boot + MongoDB RESTful API]
 		<artifactId>spring-boot-starter-tomcat</artifactId>
 		<scope>provided</scope>
 	</dependency>
-	<!-- 6. Spring Boot Starter -->
+	<!-- 6. Spring Test Starter -->
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-test</artifactId>
