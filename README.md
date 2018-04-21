@@ -64,3 +64,6 @@ MongoDB JPA 연동 연습 Act.01[Spring Boot + MongoDB RESTful API]
 
 ## Screenshot
 ![example01_result](/src/doc/example01_result.jpg "example01_result")
+
+## Author
+- [강인성](https://github.com/tails5555)
